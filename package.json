@@ -1,0 +1,17 @@
+{
+  "name": "iparts-crawler",
+  "main": "app/run.js",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "async": "~0.2.10",
+    "underscore": "~1.5.2",
+    "q": "~1.0.1",
+    "krawler": "~0.2.4",
+    "yargs": "~1.2.1",
+    "mongoskin": "~1.4.1"
+  },
+  "engines": {
+    "node": "0.8.x"
+  }
+}
