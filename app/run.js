@@ -90,7 +90,9 @@ else if(argv.start) {
 
 else if(argv.export) {
 
-  mongo.collection('products').find().toArray(function(err, items) {
+  var handle = function(items) {
+
+    var products = {};
 
     var data = [
       '"categories"',
@@ -104,8 +106,6 @@ else if(argv.export) {
     ];
 
     fs.appendFileSync(__dirname + '/export.csv', data.join(';') + "\n");
-
-    var products = {};
 
     items.forEach(function(i, k) {
 
@@ -164,9 +164,27 @@ else if(argv.export) {
 
       callback();
 
-
     }, process.exit);
+  };
 
+  var cursor = mongo.collection('products').find({});
+  var items = [];
+
+  cursor.each(function(err, product) {
+
+    if(err) {
+      console.log(err);
+      return;
+    }
+
+    if(product == null) {
+      mongo.close();
+      console.log(items.length);
+      handle(items);
+      return;
+    }
+
+    items.push(product);
   });
 
 }
