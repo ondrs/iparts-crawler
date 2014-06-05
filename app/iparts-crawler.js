@@ -135,7 +135,7 @@ IPartsCrawler.prototype.findProducts = function(url) {
           categories.push($(this).text());
         });
 
-        categories.pop(); //remove last
+        //categories.pop(); //remove last
 
         products.push({
           url: 'http://www.iparts.pl' + $(this).find('.katalog-zdjecie').find('a').attr('href'),
