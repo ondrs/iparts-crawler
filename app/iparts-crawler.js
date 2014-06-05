@@ -1,4 +1,4 @@
-var Q = require('Q'),
+var Q = require('q'),
   Krawler = require('krawler'),
   events = require('events'),
   util = require('util'),
