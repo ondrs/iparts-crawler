@@ -9,7 +9,7 @@ var argv = require('yargs').argv,
 
 
 var mongoskin = require('mongoskin');
-var mongo = mongoskin.db("mongodb://localhost:27017/iparts");
+var mongo = mongoskin.db("mongodb://localhost:27017/iparts2");
 
 var ipartsCrawler = new IPartsCrawler(mongo);
 ipartsCrawler.setMaxListeners(0);
